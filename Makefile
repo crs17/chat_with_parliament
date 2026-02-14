@@ -10,3 +10,6 @@ stop:
 clean:
 	docker compose down
 	docker volume rm weaviate_data
+
+populate_db:
+	uv run -m scripts.populate_db
