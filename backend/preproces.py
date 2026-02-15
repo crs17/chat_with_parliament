@@ -11,9 +11,11 @@ converter = DocumentConverter()
 
 PARTIPROGRAM_PATHS = {
     'A': 'static/partiprogrammer/A.pdf',
+    'B': 'static/partiprogrammer/B.pdf',
+    'C': 'static/partiprogrammer/C.html',
 }
 
-OLLAMA_ENDPOINT = os.getenv("MODEL_API_ENDPOINT")
+OLLAMA_ENDPOINT = os.getenv("WEAVIATE_MODEL_API_ENDPOINT")
 EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL")
 
 
