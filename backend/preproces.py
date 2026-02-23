@@ -5,15 +5,13 @@ from docling.document_converter import DocumentConverter
 import weaviate
 from weaviate.classes.config import Configure
 
+from backend.common import PARTIPROGRAM_PATHS
+
 load_dotenv()
 
 converter = DocumentConverter()
 
-PARTIPROGRAM_PATHS = {
-    'A': 'static/partiprogrammer/A.pdf',
-    'B': 'static/partiprogrammer/B.pdf',
-    'C': 'static/partiprogrammer/C.html',
-}
+
 
 OLLAMA_ENDPOINT = os.getenv("WEAVIATE_MODEL_API_ENDPOINT")
 EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL")
