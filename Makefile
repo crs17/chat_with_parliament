@@ -1,5 +1,6 @@
 setup:
 	uv sync
+	uv run playwright install chromium
 
 run:
 	docker compose up -d
