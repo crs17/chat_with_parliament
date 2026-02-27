@@ -1,6 +1,14 @@
 {
+    "cSpell.enabled": true,
     "cSpell.enabledFileTypes": {
-        "python": false
+        "python": true,
+        "markdown": true,
+        "jupyter": true,
+        "jupyter-notebook": true
     },
-    "makefile.configureOnOpen": false
+    "makefile.configureOnOpen": false,
+    "cSpell.checkOnlyEnabledFileTypes": false,
+    "cSpell.words": [
+        "agentic"
+    ]
 }
