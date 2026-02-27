@@ -4,7 +4,6 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
-scripts = { run-agents = "backend.agents:main" }
 dependencies = [
     "chonkie[model2vec,semantic,st]>=1.5.5",
     "docling>=2.73.0",
@@ -13,4 +12,5 @@ dependencies = [
     "pydantic-ai>=1.57.0",
     "pypdf>=6.7.0",
     "weaviate-client[agents]>=4.19.2",
+    "logfire>=4.22.0",
 ]

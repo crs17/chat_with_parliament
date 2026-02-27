@@ -2,6 +2,14 @@ setup:
 	uv sync
 	uv run playwright install chromium
 
+fetch_models:
+	ollama pull qwen3:8b
+	ollama pull nomic-embed-text-v2-moe:latest
+
+logfire_auth:
+	uv run logfire auth
+	uv run logfire projects use
+
 run:
 	docker compose up -d
 

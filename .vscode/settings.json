@@ -1,5 +1,6 @@
 {
     "cSpell.enabledFileTypes": {
         "python": false
-    }
+    },
+    "makefile.configureOnOpen": false
 }
