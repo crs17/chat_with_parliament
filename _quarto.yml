@@ -1,0 +1,13 @@
+# Quarto project config — run `quarto render` or `make render-docs`
+project:
+  type: default
+  output-dir: docs
+  execute-dir: project
+
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    code-fold: true
+    embed-resources: true
+    output-file: index.html

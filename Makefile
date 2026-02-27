@@ -22,3 +22,11 @@ clean:
 
 populate_db:
 	uv run -m scripts.populate_db
+
+# Quarto
+quarto-preview:
+	quarto preview chat_with_parliament.ipynb --no-browser --port 5080
+
+quarto-render:
+	quarto render chat_with_parliament.ipynb
+	touch docs/.nojekyll
