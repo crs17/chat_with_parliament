@@ -1,5 +1,6 @@
 {
     "cSpell.enabled": true,
+    "cSpell.language": "en,da",
     "cSpell.enabledFileTypes": {
         "python": true,
         "markdown": true,
@@ -9,6 +10,7 @@
     "makefile.configureOnOpen": false,
     "cSpell.checkOnlyEnabledFileTypes": false,
     "cSpell.words": [
-        "agentic"
+        "agentic",
+        "qwen"
     ]
 }

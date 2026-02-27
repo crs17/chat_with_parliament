@@ -57,7 +57,7 @@ party_expert_agent = Agent[PartyExpertDeps, str](
         "get_context kan bruges med string queries. Brug IKKE JSON."
         "Brug kun informationer direkte fra partiprogrammet. "
         "Tilføj ikke fakta, som ikke fremgår direkte fra partiprogrammet. "
-        "Hold dit svar kort og præcist (maks 3-4 sætninger). "
+        "Hold dit svar kort og præcist (maks. 3-4 sætninger). "
         "Svar altid på dansk."
     ),
     output_type=str,

@@ -2249,7 +2249,7 @@ var requirejs,require,define;(function(global,setTimeout){var req,s,head,baseEle
   <div>
     <div class="abstract">
       <div class="block-title">Abstract</div>
-      <p>Here we will demonstrate <em>agentic delegation</em> where a central AI agent can delegate sub-tasks to other agents for a well-defined division of the work. While more cvomplex than having a single AI agent it can lead to better overall performance. Here we set up a plotical analyst agent have access to a series party expert agents (one for each party). The political analyst takes input from the user about their viewpoints and then queries relevant parties on their oppinions in order to rank the parties according to their alignment with the user. This page is part of the <a href="https://github.com/crs17/chat_with_parliament">chat_with_parliament</a> repository which contains all the code for the demo.</p>
+      <p>Here we will demonstrate <em>agentic delegation</em> where a central AI agent can delegate sub-tasks to other agents for a well-defined division of the work. While more complex than having a single AI agent it can lead to better overall performance. Here we set up a political analyst agent have access to a series party expert agents (one for each party). The political analyst takes input from the user about their viewpoints and then queries relevant parties on their opinions in order to rank the parties according to their alignment with the user. This page is part of the <a href="https://github.com/crs17/chat_with_parliament">chat_with_parliament</a> repository which contains all the code for the demo.</p>
     </div>
   </div>
   
@@ -2261,7 +2261,7 @@ var requirejs,require,define;(function(global,setTimeout){var req,s,head,baseEle
   <ul class="collapse">
   <li><a href="#chat-with-parliament" id="toc-chat-with-parliament" class="nav-link active" data-scroll-target="#chat-with-parliament">Chat with parliament</a>
   <ul class="collapse">
-  <li><a href="#runing-the-agent-setup" id="toc-runing-the-agent-setup" class="nav-link" data-scroll-target="#runing-the-agent-setup">Runing the agent setup</a></li>
+  <li><a href="#running-the-agent-setup" id="toc-running-the-agent-setup" class="nav-link" data-scroll-target="#running-the-agent-setup">Running the agent setup</a></li>
   <li><a href="#technical-considerations" id="toc-technical-considerations" class="nav-link" data-scroll-target="#technical-considerations">Technical considerations</a></li>
   <li><a href="#tech-stack-overview" id="toc-tech-stack-overview" class="nav-link" data-scroll-target="#tech-stack-overview">Tech Stack overview</a></li>
   </ul></li>
@@ -2285,12 +2285,12 @@ var requirejs,require,define;(function(global,setTimeout){var req,s,head,baseEle
 <figcaption>Architecture</figcaption>
 </figure>
 </div>
-<section id="runing-the-agent-setup" class="level2">
-<h2 class="anchored" data-anchor-id="runing-the-agent-setup">Runing the agent setup</h2>
-<p>Let’s start by running the setup with two statements in opposite directions valueing either climate or economic growth the highest.</p>
-<section id="opinion-klimaet-er-vigtigere-end-erhverslivet." class="level3">
-<h3 class="anchored" data-anchor-id="opinion-klimaet-er-vigtigere-end-erhverslivet.">Opinion: “Klimaet er vigtigere end erhverslivet.”</h3>
-<p>Below we see the first the logs and the model run and below that we see the scores given to the individual parties. This seems to align pretty well with how I would have done it intuitively. The general trend is left-wing parties at the top, right-wing parties at the bottom.</p>
+<section id="running-the-agent-setup" class="level2">
+<h2 class="anchored" data-anchor-id="running-the-agent-setup">Running the agent setup</h2>
+<p>Let’s start by running the setup with two statements in opposite directions valuing either climate or economic growth the highest.</p>
+<section id="opinion-klimaet-er-vigtigere-end-erhvervslivet." class="level3">
+<h3 class="anchored" data-anchor-id="opinion-klimaet-er-vigtigere-end-erhvervslivet.">Opinion: “Klimaet er vigtigere end erhvervslivet.”</h3>
+<p>Below we see the first the logs of the model run showing how the political analyst agent queries the individual party expert agents, the responses being sent back, and finally how political analyst compiles the answers. Further below we see the scores given to the individual parties by the political analyst. This seems to align pretty well with how I would have done it intuitively. The general trend is left-wing parties at the top, right-wing parties at the bottom.</p>
 <div id="5ed2c40f" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
@@ -2314,12 +2314,12 @@ var requirejs,require,define;(function(global,setTimeout){var req,s,head,baseEle
 </pre>
 </div>
 </div>
-<div id="65656101" class="cell" data-execution_count="3">
+<div id="65656101" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>result_klima_1 <span class="op">=</span> <span class="cf">await</span> political_analyst_agent.run(</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;jeg mener klimaet er vigtigere end erhverslivet! Lad mig se en score for alle partierne&quot;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;jeg mener klimaet er vigtigere end erhvervslivet! Lad mig se en score for alle partierne&quot;</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
@@ -2525,6 +2525,10 @@ H        -7 Modstand mod grønne afgifter, prioriterer økonomi over klima
 O        -8 Støtte til fossile brændsler og modstand mod grønne afgifter</code></pre>
 </div>
 </div>
+</section>
+<section id="opinion-økonomisk-vækst-er-førsteprioritet." class="level3">
+<h3 class="anchored" data-anchor-id="opinion-økonomisk-vækst-er-førsteprioritet.">Opinion: “Økonomisk vækst er førsteprioritet.”</h3>
+<p>Next, we try roughly the opposite oppinon, namely that economic growth is the top priority.</p>
 <div id="8c794099" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
