@@ -47,9 +47,6 @@ model = OpenAIChatModel(MODEL_NAME, provider=ollama)
 
 
 # --- Party Expert Agent ---
-# A single reusable agent that answers questions about any party.
-# The specific party is determined by the party_id in its dependencies.
-# This avoids the closure bug of creating 12 identical agents in a loop.
 
 party_expert_agent = Agent[PartyExpertDeps, str](
     model=model,
@@ -57,13 +54,14 @@ party_expert_agent = Agent[PartyExpertDeps, str](
         "Du er en ekspert i danske partiprogrammer. "
         "Du får et spørgsmål om et specifikt parti, som du skal svare på. "
         "Brug get_context til at finde relevante informationer fra partiets partiprogram. "
+        "get_context kan bruges med string queries. Brug IKKE JSON."
         "Brug kun informationer direkte fra partiprogrammet. "
         "Tilføj ikke fakta, som ikke fremgår direkte fra partiprogrammet. "
         "Hold dit svar kort og præcist (maks 3-4 sætninger). "
         "Svar altid på dansk."
     ),
     output_type=str,
-    retries=2,
+    retries=2,   
 )
 
 
