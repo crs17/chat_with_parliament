@@ -13,4 +13,5 @@ dependencies = [
     "pypdf>=6.7.0",
     "weaviate-client[agents]>=4.19.2",
     "logfire>=4.22.0",
+    "dotenv>=0.9.9",
 ]
