@@ -8,7 +8,7 @@ fetch_models:
 
 logfire_auth:
 	uv run logfire auth
-	uv run logfire projects use
+	uv run logfire projects use chat-with-parliament
 
 run:
 	docker compose up -d

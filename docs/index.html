@@ -2293,12 +2293,105 @@ var requirejs,require,define;(function(global,setTimeout){var req,s,head,baseEle
 <section id="opinion-klimaet-er-vigtigere-end-erhvervslivet." class="level3">
 <h3 class="anchored" data-anchor-id="opinion-klimaet-er-vigtigere-end-erhvervslivet.">Opinion: “Klimaet er vigtigere end erhvervslivet.”</h3>
 <p>Below we see the first the logs of the model run showing how the political analyst agent queries the individual party expert agents, the responses being sent back, and finally how political analyst compiles the answers. Further below we see the scores given to the individual parties by the political analyst.</p>
-<div id="5ed2c40f" class="cell" data-execution_count="1">
+<div id="5ed2c40f" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>make setup <span class="op">&gt;</span> <span class="op">/</span>dev<span class="op">/</span>null <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>make fetch_models <span class="op">&gt;</span> <span class="op">/</span>dev<span class="op">/</span>null <span class="dv">2</span><span class="op">&gt;&amp;</span><span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>make setup</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>make fetch_models</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>make run</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>make logfire_auth</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>make populate_db</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<div class="ansi-escaped-output">
+<pre>uv sync
+
+Resolved <span style="font-weight:bold;opacity:0.7">272 packages</span> in 25ms
+
+Audited <span style="font-weight:bold;opacity:0.7">249 packages</span> in 79ms
+
+uv run playwright install chromium
+
+ollama pull qwen3:8b
+
+]11;?\pulling manifest ⠋ pulling manifest ⠙ pulling manifest ⠹ pulling manifest ⠸ pulling manifest ⠼ pulling manifest ⠴ pulling manifest ⠦ pulling manifest ⠧ pulling manifest ⠇ pulling manifest 
+
+pulling a3de86cd1c13: 100% ▕██████████████████▏ 5.2 GB                         
+
+pulling ae370d884f10: 100% ▕██████████████████▏ 1.7 KB                         
+
+pulling d18a5cc71b84: 100% ▕██████████████████▏  11 KB                         
+
+pulling cff3f395ef37: 100% ▕██████████████████▏  120 B                         
+
+pulling 05a61d37b084: 100% ▕██████████████████▏  487 B                         
+
+verifying sha256 digest 
+
+writing manifest 
+
+success 
+
+ollama pull nomic-embed-text-v2-moe:latest
+
+]11;?\pulling manifest ⠋ pulling manifest ⠙ pulling manifest ⠹ pulling manifest ⠸ pulling manifest ⠼ pulling manifest ⠴ pulling manifest ⠦ pulling manifest 
+
+pulling a5db3381f2e5: 100% ▕██████████████████▏ 957 MB                         
+
+pulling 8e904df6dfe0: 100% ▕██████████████████▏  283 B                         
+
+verifying sha256 digest 
+
+writing manifest 
+
+success 
+
+docker compose up -d
+
+[+] Running 1/1
+
+ <span class="ansi-green-fg">✔</span> Container chat_med_folketinget-weaviate-1  <span class="ansi-green-fg">Running</span>                      <span class="ansi-blue-fg">0.0s </span>
+
+uv run logfire auth
+
+You are already logged in. (Your credentials are stored in /Users/cs/.logfire/default.toml)
+
+If you would like to log in using a different account, use the --region argument:
+
+logfire --region &lt;region&gt; auth
+
+uv run logfire projects use chat-with-parliament
+
+Project configured successfully. You will be able to view it at: https://logfire-eu.pydantic.dev/crs17/chat-with-parliament
+
+uv run -m scripts.populate_db
+
+Processing party id: A
+
+Processing party id: B
+
+Processing party id: C
+
+Processing party id: F
+
+Processing party id: H
+
+Processing party id: I
+
+Processing party id: O
+
+Processing party id: M
+
+Processing party id: V
+
+Processing party id: Æ
+
+Processing party id: Ø
+
+Processing party id: Å
+</pre>
+</div>
+</div>
 </div>
 <div id="aa473453" class="cell" data-execution_count="2">
 <details class="code-fold">

@@ -8,4 +8,7 @@ The demo can be viewed [here](https://crs17.github.io/chat_with_parliament/).
 - uv
 - Ollama local installation
 - Docker
+- logfire account for debugging
+
+
 

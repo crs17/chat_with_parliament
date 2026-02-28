@@ -3,7 +3,7 @@ name = "chat-med-folketinget"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.14"
+requires-python = ">=3.12"
 dependencies = [
     "chonkie[model2vec,semantic,st]>=1.5.5",
     "docling>=2.73.0",
