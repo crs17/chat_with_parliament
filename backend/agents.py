@@ -1,9 +1,10 @@
 import os
 from dataclasses import dataclass
+from typing import Annotated
 
 from dotenv import load_dotenv
 import logfire
-from pydantic import BaseModel, conint
+from pydantic import BaseModel, Field
 from pydantic_ai import Agent, RunContext
 from pydantic_ai.models.openai import OpenAIChatModel
 from pydantic_ai.providers.ollama import OllamaProvider
@@ -22,7 +23,7 @@ logfire.instrument_pydantic_ai()
 
 class PartyRecommendation(BaseModel):
     party_id: str
-    score: conint(strict=True, ge=-10, le=10)
+    score: Annotated[int, Field(strict=True, ge=-10, le=10)]
     reason: str
 
 
@@ -56,6 +57,7 @@ party_expert_agent = Agent[PartyExpertDeps, str](
         "Brug get_context til at finde relevante informationer fra partiets partiprogram. "
         "get_context kan bruges med string queries. Brug IKKE JSON."
         "Brug kun informationer direkte fra partiprogrammet. "
+        "Hvis get_context returnerer 0 chunks, så svar 'Ingen relevant information om {query} i partiprogrammet.' "
         "Tilføj ikke fakta, som ikke fremgår direkte fra partiprogrammet. "
         "Hold dit svar kort og præcist (maks. 3-4 sætninger). "
         "Svar altid på dansk."

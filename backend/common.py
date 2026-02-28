@@ -18,7 +18,7 @@ PARTY_MANIFESTS: dict[str, list[str]] = {
         'https://www.socialdemokratiet.dk/det-vi-mener/boligpolitik/',
         'https://www.socialdemokratiet.dk/det-vi-mener/kulturpolitik/',
         'https://www.socialdemokratiet.dk/det-vi-mener/transport/',
-        'https://www.socialdemokratiet.dk/det-vi-mener/ervhervspolitik/',
+        'https://www.socialdemokratiet.dk/det-vi-mener/ervhervspolitik/', # typo on website
         'https://www.socialdemokratiet.dk/det-vi-mener/socialpolitik/',
         'https://www.socialdemokratiet.dk/det-vi-mener/ligestilling/',
     ],

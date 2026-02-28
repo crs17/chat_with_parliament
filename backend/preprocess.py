@@ -60,7 +60,7 @@ def create_collection_and_store_chunks(party_id: str, document: Document) -> wea
             else:
                 print(f"Inserted {len(document.chunks)} chunks into {party_id}")
 
-    return party_collection
+    return
 
 
 def process_chunks(md_text: str) -> Document:
