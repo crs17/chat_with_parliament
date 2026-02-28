@@ -1,4 +1,4 @@
-from backend.preproces import process_partiprogram
+from backend.preprocess import process_partiprogram
 from backend.common import PARTY_MANIFESTS
 
 for party_id in PARTY_MANIFESTS:
