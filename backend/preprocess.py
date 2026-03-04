@@ -37,7 +37,7 @@ def collection_exists(party_id: str) -> bool:
         return client.collections.exists(weaviate_collection_name(party_id))
 
 
-def create_collection_and_store_chunks(party_id: str, document: Document) -> weaviate.Collection:
+def create_collection_and_store_chunks(party_id: str, document: Document) -> None:
     with weaviate.connect_to_local() as client:
         # Create collection for party
         party_collection = client.collections.create(
