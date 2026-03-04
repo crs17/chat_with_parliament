@@ -5,12 +5,15 @@ from typing import Annotated
 from dotenv import load_dotenv
 import logfire
 from pydantic import BaseModel, Field
-from pydantic_ai import Agent, RunContext
+from pydantic_ai import Agent, RunContext, ModelSettings
+from pydantic_ai.models.anthropic import AnthropicModel
+from pydantic_ai.providers.anthropic import AnthropicProvider
 from pydantic_ai.models.openai import OpenAIChatModel
 from pydantic_ai.providers.ollama import OllamaProvider
 import weaviate
 
 from backend.common import PARTY_MANIFESTS, PARTY_NAMES, weaviate_collection_name
+from backend.utils import create_retry_client
 
 load_dotenv()
 
@@ -19,8 +22,6 @@ logfire.instrument_pydantic_ai()
 
 
 # --- Data models ---
-
-
 class PartyRecommendation(BaseModel):
     party_id: str
     score: Annotated[int, Field(strict=True, ge=-10, le=10)]
@@ -41,10 +42,25 @@ class PartyExpertDeps:
 
 
 # --- Model setup ---
-
-ollama = OllamaProvider(base_url=os.getenv("OLLAMA_BASE_URL"))
-MODEL_NAME = os.getenv("LLM_MODEL", "qwen3:8b")
-model = OpenAIChatModel(MODEL_NAME, provider=ollama)
+if os.getenv("ANTHROPIC_API_KEY"):
+    model = AnthropicModel(
+        os.getenv("ANTHROPIC_MODEL"),
+        provider=AnthropicProvider(
+            api_key=os.getenv("ANTHROPIC_API_KEY"),
+            http_client=create_retry_client()
+        ),
+        settings=ModelSettings(temperature=0.0, seed=42)
+    )
+else:
+    ollama = OllamaProvider(
+        base_url=os.getenv("OLLAMA_BASE_URL"),
+        api_key=os.getenv("OLLAMA_API_KEY")
+    )
+    MODEL_NAME = os.getenv("OLLAMA_MODEL")
+    model = OpenAIChatModel(
+        MODEL_NAME, provider=ollama,
+        settings=ModelSettings(temperature=0.0, seed=42)
+    )
 
 
 # --- Party Expert Agent ---
@@ -87,7 +103,8 @@ party_list_str = "\n".join(
     f"- {pid}: {PARTY_NAMES[pid]}" for pid in PARTY_MANIFESTS
 )
 
-political_analyst_prompt = f"""\
+political_analyst_prompt = f"""
+\no_think
 Du er en skarp og kritisk politisk analytiker. Du arbejder udelukkende på dansk.
 
 Du har adgang til en parti-ekspert via consult_party_expert.
