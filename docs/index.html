@@ -2293,14 +2293,14 @@ var requirejs,require,define;(function(global,setTimeout){var req,s,head,baseEle
 <section id="opinion-klimaet-er-vigtigere-end-erhvervslivet." class="level3">
 <h3 class="anchored" data-anchor-id="opinion-klimaet-er-vigtigere-end-erhvervslivet.">Opinion: “Klimaet er vigtigere end erhvervslivet.”</h3>
 <p>Below we see the logs of the model run showing how the political analyst agent queries the individual party expert agents, the responses being sent back, and finally how political analyst compiles the answers. Further below we see the scores given to the individual parties by the political analyst.</p>
-<div id="5ed2c40f" class="cell" data-execution_count="1">
+<div id="5ed2c40f" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># !make setup</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># !make fetch_models</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># !make run</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># !make logfire_auth</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># !make populate_db</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>make setup</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>make fetch_models</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>make run</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>make logfire_auth</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>make populate_db</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <div id="aa473453" class="cell" data-execution_count="3">
@@ -3222,7 +3222,7 @@ O         1 Dansk Folkeparti nævner kun økonomisk vækst i kontekst af udvikli
 </section>
 <section id="unbalanced-amounts-of-policy-data-between-parties" class="level3">
 <h3 class="anchored" data-anchor-id="unbalanced-amounts-of-policy-data-between-parties">Unbalanced amounts of policy data between parties</h3>
-<p>In this project I just grepped the main page on policy (including subpages) for each party and the amount text available varies quite a bit between parties. That can be seen above where the political analyst agent states that there is no information on climate policy for three parties and that it therefore can not score them. Many other sources could be included to improve the answers but for this demo’s purpose I just kept it simple.</p>
+<p>In this project I just fetched the main page on policy (including subpages) for each party and the amount text available varies quite a bit between parties. That can be seen above where the political analyst agent states that there is no information on climate policy for three parties and that it therefore can not score them. Many other sources could be included to improve the answers but for this demo’s purpose I just kept it simple.</p>
 </section>
 </section>
 <section id="tech-stack-overview" class="level2">
